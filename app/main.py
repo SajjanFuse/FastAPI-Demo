@@ -4,6 +4,11 @@ from models import Employee
 
 app = FastAPI()
 
+@app.on_event("startup")
+async def startup():
+    print("App is starting up")
+
+
 # Endpoint to get all employees
 @app.get("/employees/")
 async def get_employees():
